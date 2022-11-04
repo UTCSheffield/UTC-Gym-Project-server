@@ -72,10 +72,20 @@ The rest of the resources are found in `/api` (This is the docs route by default
 
 **Note**: Pipenv seems to have been becoming unmaintained or unsupported, so `virtualenv` is recommended to manage your packages and Python environment, hence why `requirements.txt` has been generated.
 
+# Install on Windows
+Clone this repo with GitHub Desktop
+
+```powershell
+py -m pip install -r .\requirements.txt
+```
+
+
 ## Installing with Pipenv ???????
 ```sh
 # Clone the repo
 $ git clone https://github.com/X1Zeth2X/flask-restx-boilerplate.git
+```
+
 
 # Install packages with pipenv
 $ pipenv install
