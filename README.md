@@ -124,12 +124,12 @@ $ flask run
 Or windows
 
 ```bat
-$ py -m flask db init --app giya # Initializes a new SQLite database.
-$ py -m flask db migrate --app giya # Creates the changes for the database.
-$ py -m flask db upgrade --app giya # Apply the changes to the database.
+$ py -m flask --app giya db init  # Initializes a new SQLite database.
+$ py -m flask --app giya db migrate # Creates the changes for the database.
+$ py -m flask --app giya db upgrade # Apply the changes to the database.
 
 # Run the app
-$ flask run --app giya
+$ py -m flask --app giya run
 ```
 
 
