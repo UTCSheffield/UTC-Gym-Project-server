@@ -63,7 +63,7 @@ It uses [Black](https://github.com/psf/black) for code styling/formatting.
 This version is intended as the starting point for student projects and has some extra bits.
 
 - An "app" blueprint which provides a flask template based end point at index. Which at the moment just lists the other parts of the system (you probably wouldn't use this live)
-- A "pwa" blueprint that just statically serves the content of a pwa folder out side of the project. It is currently rigged to use a clone of https://github.com/UTCSheffield/demo-progressive-web-app at the same level as this repo. In use this would be statically served from somewhere else. But this saves the hassle of running 2 servers.
+- A "pwa" blueprint that just statically serves the content of a pwa folder out side of the project. It is currently rigged to use a clone of https://github.com/UTCSheffield/UTC-Gym-Project-pwa at the same level as this repo. In use this would be statically served from somewhere else. But this saves the hassle of running 2 servers.
 - An "admin" section that quickly adds an admin interface for the models using `admin.add_view(ModelView(User, db.session))` etc.
 
 By default the `/auth` route is used by the `auth` blueprint. This currently only really works the the api documentation try it yourself functionality.
