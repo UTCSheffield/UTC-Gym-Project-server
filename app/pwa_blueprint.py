@@ -7,5 +7,5 @@ from flask import request
 from flask import url_for
 from werkzeug.exceptions import abort
 
-pwa_blueprint = Blueprint('pwa_blueprint', __name__, static_url_path="/", static_folder="../../demo-progressive-web-app" )
+pwa_blueprint = Blueprint('pwa_blueprint', __name__, static_url_path="/", static_folder="../../UTC-Gym-Project-pwa" )
     
