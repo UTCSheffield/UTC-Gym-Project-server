@@ -1,6 +1,5 @@
 # Model Schemas
 from app import ma
-
 from .user import User
 
 

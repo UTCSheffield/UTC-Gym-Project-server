@@ -85,6 +85,9 @@ class User(Model):
     joined_date = Column(db.DateTime, default=datetime.utcnow)
     role_id = Column(db.Integer, db.ForeignKey("roles.id"))
 
+    measurements = db.relationship("Measurement")
+    sessions = db.relationship("Session")
+
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
 

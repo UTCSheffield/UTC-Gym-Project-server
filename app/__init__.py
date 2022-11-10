@@ -35,12 +35,27 @@ def create_app(config_name):
     from .app_blueprint import app_blueprint
     app.register_blueprint(app_blueprint)
      
-    admin.name='boilerplate'
+    admin.name='UTC Gym'
     admin.template_mode='bootstrap4'
     from app.models.user import User, Role
+    from app.models.exercise import Exercise
+    #from app.models.exerciseMuscleGroup import ExerciseMuscleGroup
+    from app.models.machine import Machine
+    from app.models.measurement import Measurement
+    from app.models.muscleGroup import MuscleGroup
+    from app.models.session import Session
+    from app.models.sessionExercise import SessionExercise
     
     admin.add_view(ModelView(User, db.session))
     admin.add_view(ModelView(Role, db.session))
+    admin.add_view(ModelView(Exercise, db.session))
+    #admin.add_view(ModelView(ExerciseMuscleGroup, db.session))
+    admin.add_view(ModelView(Machine, db.session))
+    admin.add_view(ModelView(Measurement, db.session))
+    admin.add_view(ModelView(MuscleGroup, db.session))
+    admin.add_view(ModelView(Session, db.session))
+    admin.add_view(ModelView(SessionExercise, db.session))
+
 
     return app
 

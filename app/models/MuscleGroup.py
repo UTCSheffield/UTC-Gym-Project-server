@@ -1,7 +1,10 @@
+from datetime import datetime
+from app import db, bcrypt
+
 class MuscleGroup(db.Model):
-    id = db.Column(db.Integer, nullable=False)
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
     
-    exercise_id = Column(Integer, ForeignKey("exercise.id"))
-    exercise = relationship("Exercise")
+    exercise_id = db.Column(db.Integer, db.ForeignKey("exercise.id"))
+    exercise = db.relationship("Exercise")
     
-    name = sa.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)

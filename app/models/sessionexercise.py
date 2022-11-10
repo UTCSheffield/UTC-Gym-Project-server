@@ -1,10 +1,13 @@
+from datetime import datetime
+from app import db, bcrypt
+
 class SessionExercise(db.Model):
     id = db.Column(db.Integer, primary_key=True)
    
-    session_id = Column(ForeignKey("session.id"))
-    session = relationship("Session")
-    exercise_id = Column(ForeignKey("exercise.id"))
-    exercise = relationship("Exercise")
+    session_id = db.Column(db.ForeignKey("session.id"))
+    #session = db.relationship("Session")
+    exercise_id = db.Column(db.ForeignKey("exercise.id"))
+    exercise = db.relationship("Exercise")
 
     start = db.Column(db.DateTime, nullable=False)
     end = db.Column(db.DateTime, nullable=False)
