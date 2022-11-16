@@ -7,3 +7,51 @@ class UserSchema(ma.Schema):
     class Meta:
         # Fields to expose, add more if needed.
         fields = ("email", "name", "username", "joined_date", "role_id")
+
+
+from .session import Session
+
+class SessionSchema(ma.Schema):
+    class Meta:
+        # Fields to expose, add more if needed.
+        fields = ("User", "location", "startDateTime", "endTime", "role_id")
+
+
+from .exercise import Exercise
+
+class SessionSchema(ma.Schema):
+    class Meta:
+        # Fields to expose, add more if needed.
+        fields = ("name", "machine", "measure", "how_to_use", "role_id")
+
+
+from .sessionexercise import SessionExercise
+
+class SessionSchema(ma.Schema):
+    class Meta:
+        # Fields to expose, add more if needed.
+        fields = ("start", "end", "reps", "value", "role_id")
+
+
+from .measurement import Measurement
+
+class SessionSchema(ma.Schema):
+    class Meta:
+        # Fields to expose, add more if needed.
+        fields = ("date", "height", "resting", "role_id")
+
+
+from .ExerciseMuscleGroup import ExerciseMuscleGroup
+
+class SessionSchema(ma.Schema):
+    class Meta:
+        # Fields to expose, add more if needed.
+        fields = ("role_id")
+
+
+from .machine import Machine
+
+class SessionSchema(ma.Schema):
+    class Meta:
+        # Fields to expose, add more if needed.
+        fields = ("name", "role_id")
