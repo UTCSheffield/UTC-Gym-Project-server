@@ -16,8 +16,9 @@ class Exercise(db.Model):
     
     name = db.Column(db.String, nullable=False)
     measure = db.Column(db.String, nullable=False)
-    muscle_groups = db.relationship("MuscleGroup", secondary= exercisemusclegroup_table)
+    muscle_groups = db.relationship("MuscleGroup", secondary=exercisemusclegroup_table)
     how_to_use = db.Column(db.String, nullable=False)
-    reps = db.Column(db.Integer, default=10)
-    sets = db.Column(db.Integer, default=3)
-    default_value = db.Column(db.String)
+    default_reps = db.Column(db.Integer, default=10)
+    default_sets = db.Column(db.Integer, default=3)
+    default_value = db.Column(db.Float)
+    default_perc_def = db.Column(db.Integer, default=3)

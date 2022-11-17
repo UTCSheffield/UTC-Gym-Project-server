@@ -18,4 +18,7 @@ class SessionExercise(db.Model):
     notes = db.Column(db.String)
 
     def suggestion(self):
-        pass
+        if self.exercise:
+            self.reps = self.exercise.default_reps
+            self.sets = self.exercise.default_sets
+            self.value = self.exercise.default_value
