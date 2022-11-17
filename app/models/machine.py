@@ -6,6 +6,6 @@ class Machine(db.Model):
     
     #exercises = db.relationship("Exercise")
     
-    name = db.Column(db.Integer, nullable=False)
+    name = db.Column(db.String, nullable=False)
     
     
