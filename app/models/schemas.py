@@ -25,7 +25,7 @@ class ExerciseSchema(ma.Schema):
         fields = ("name", "machine", "measure", "how_to_use", "role_id")
 
 
-from .sessionExercise import SessionExercise
+from .session_exercise import SessionExercise
 
 class SessionExerciseSchema(ma.Schema):
     class Meta:

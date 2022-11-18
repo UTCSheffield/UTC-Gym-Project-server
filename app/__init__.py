@@ -42,9 +42,9 @@ def create_app(config_name):
     #from app.models.exerciseMuscleGroup import ExerciseMuscleGroup
     from app.models.machine import Machine
     from app.models.measurement import Measurement
-    from app.models.muscleGroup import MuscleGroup
+    from app.models.muscle_group import MuscleGroup
     from app.models.session import Session
-    from app.models.sessionExercise import SessionExercise
+    from app.models.session_exercise import SessionExercise
     
     admin.add_view(ModelView(User, db.session))
     admin.add_view(ModelView(Role, db.session))

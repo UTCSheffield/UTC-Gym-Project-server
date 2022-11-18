@@ -15,7 +15,7 @@ class Exercise(db.Model):
     machine = db.relationship("Machine")
     
     name = db.Column(db.String, nullable=False)
-    units = db.Column(db.String, nullable=False)
+    units = db.Column(db.String, nullable=False, default="kg")
     muscle_groups = db.relationship("MuscleGroup", secondary=exercisemusclegroup_table)
     how_to_use = db.Column(db.String, nullable=False)
     default_reps = db.Column(db.Integer, default=10)
