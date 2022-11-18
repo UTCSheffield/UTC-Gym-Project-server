@@ -24,8 +24,13 @@ def index():
 
 @app_blueprint.route('/startvalues')
 def startvalues():
-    db.session.add(MuscleGroup(name="Biceps"))
-    db.session.add(MuscleGroup(name="Triceps"))
+    bi = MuscleGroup(name="Biceps")
+    db.session.add(bi)
+    tri = MuscleGroup(name="Triceps")
+    db.session.add(tri)
+    bp = Machine(name="Bench Press")
+    db.session.add(bp)
+    db.session.add(Exercise(machine=bp, muscle_groups=[bi, tri]))
     db.session.commit()
 
     return render_template("app/index.html")
