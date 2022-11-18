@@ -16,6 +16,7 @@ class SessionExercise(db.Model):
     value = db.Column(db.Float, nullable=False)
     perc_diff = db.Column(db.Integer, nullable=False, default=3)
     notes = db.Column(db.String)
+    units = db.Column(db.String, nullable=False)
 
     def suggestion(self):
         if self.exercise:

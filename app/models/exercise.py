@@ -15,10 +15,13 @@ class Exercise(db.Model):
     machine = db.relationship("Machine")
     
     name = db.Column(db.String, nullable=False)
-    measure = db.Column(db.String, nullable=False)
+    units = db.Column(db.String, nullable=False)
     muscle_groups = db.relationship("MuscleGroup", secondary=exercisemusclegroup_table)
     how_to_use = db.Column(db.String, nullable=False)
     default_reps = db.Column(db.Integer, default=10)
     default_sets = db.Column(db.Integer, default=3)
     default_value = db.Column(db.Float)
     default_perc_def = db.Column(db.Integer, default=3)
+
+    def __repr__(self):
+        return self.name

@@ -8,5 +8,5 @@ class Machine(db.Model):
     
     name = db.Column(db.String, nullable=False)
 
-    def __unicode__(self):
+    def __repr__(self):
         return self.name

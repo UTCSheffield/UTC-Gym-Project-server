@@ -12,3 +12,6 @@ class Session(db.Model):
     location = db.Column(db.String, nullable=False)
     startDateTime = db.Column(db.DateTime, nullable=False)
     endTime = db.Column(db.DateTime, nullable=False)
+
+    def __repr__(self):
+        return self.name + "-" + str(self.startDateTime)

@@ -8,3 +8,6 @@ class MuscleGroup(db.Model):
     #exercise = db.relationship("Exercise")
     
     name = db.Column(db.String, nullable=False)
+
+    def __repr__(self):
+        return self.name
