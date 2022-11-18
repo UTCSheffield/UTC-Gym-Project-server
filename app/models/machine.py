@@ -7,5 +7,6 @@ class Machine(db.Model):
     #exercises = db.relationship("Exercise")
     
     name = db.Column(db.String, nullable=False)
-    
-    
+
+    def __unicode__(self):
+        return self.name

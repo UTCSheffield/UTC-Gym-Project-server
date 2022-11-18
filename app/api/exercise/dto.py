@@ -7,12 +7,12 @@ class ExerciseDto:
     exercise = api.model(
         "Exercise object",
         {
-            "name": fields.String
-            "measure": fields.String
-            "muscle_groups": fields.String
-            "how_to_use": Fields.String
-            "reps": fields.Integer
-            "sets": fields.Integer
+            "name": fields.String,
+            "measure": fields.String,
+            "muscle_groups": fields.String,
+            "how_to_use": fields.String,
+            "reps": fields.Integer,
+            "sets": fields.Integer,
             "default_value": fields.Integer
 
         },
