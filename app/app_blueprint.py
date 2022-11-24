@@ -5,7 +5,7 @@ from flask import redirect
 from flask import render_template
 from flask import request
 from flask import url_for
-from werkzeug.exceptions import aborts
+#from werkzeug.exceptions import aborts
 from app.models.user import User, Role
 from app.models.exercise import Exercise
 from app.models.machine import Machine
@@ -26,7 +26,7 @@ def index():
 def startvalues():
     bi = MuscleGroup(name="Biceps")
     db.session.add(bi)
-    tri = MuscleGroup(name="Triceps")
+    tri = MuscleGroup(name="Triceps") 
     db.session.add(tri)
     bp = Machine(name="Bench Press")
     db.session.add(bp)
