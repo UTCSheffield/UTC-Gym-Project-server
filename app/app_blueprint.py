@@ -5,6 +5,7 @@ from flask import redirect
 from flask import render_template
 from flask import request
 from flask import url_for
+from app import db
 #from werkzeug.exceptions import aborts
 from app.models.user import User, Role
 from app.models.exercise import Exercise
@@ -30,7 +31,27 @@ def startvalues():
     db.session.add(tri)
     bp = Machine(name="Bench Press")
     db.session.add(bp)
-    db.session.add(Exercise(machine=bp, muscle_groups=[bi, tri]))
+    bp_exercise = Exercise(machine=bp, muscle_groups=[bi, tri], name="Bench Press", units="kg", how_to_use="with difficulty", default_reps=10, default_sets=3, default_value=10, default_perc_def=3)
+    db.session.add(bp_exercise)
+
+
+   
+
+    ses = Session(location="UTC OLP", startDateTime=db.func.now(), endTime=db.func.now())
+    bp_session_exercise = SessionExercise(exercise=bp_exercise, end=db.func.now(), reps=10, sets=3, value=10, perc_diff=3, units="kg")
+    ses.exercises.append(bp_session_exercise)
+   
+
+    db.session.add(ses)
+
+   
+    db.session.add(bp_session_exercise)
+
+    mes = Measurement(date=db.func.now(), height=174, resting_heartrate=60)
+    us = User(email="bob@gmail.com", username="bob3", name="Bob Ross", password_hash="$2b$12$y9hO97HAn/9dbgYC.JCA9u2AMNh44YPGMAxjIDEXvrtB5LnkwOLq2")
+    us.measurements.append(mes)
+    db.session.add(mes)
+    db.session.add(us)
     db.session.commit()
 
     return render_template("app/index.html")

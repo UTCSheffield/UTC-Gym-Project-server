@@ -9,7 +9,7 @@ class SessionExercise(db.Model):
     exercise_id = db.Column(db.ForeignKey("exercise.id"))
     exercise = db.relationship("Exercise")
 
-    start = db.Column(db.DateTime, nullable=False)
+    start = db.Column(db.DateTime, nullable=False, default=db.func.now())
     end = db.Column(db.DateTime, nullable=False)
     reps = db.Column(db.Integer, nullable=False)
     sets = db.Column(db.Integer, nullable=False)

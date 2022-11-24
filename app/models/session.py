@@ -14,4 +14,4 @@ class Session(db.Model):
     endTime = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
-        return self.name + "-" + str(self.startDateTime)
+        return str(self.id) + "-" + str(self.startDateTime)
