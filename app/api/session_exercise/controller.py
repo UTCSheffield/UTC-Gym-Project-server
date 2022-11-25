@@ -17,7 +17,7 @@ class Session_exerciseGet(Resource):
             404: "Session_exercise not found!",
         },
     )
-    @jwt_required()
+    #@jwt_required()
     def get(self, session_exercisename):
         """ Get a specific session_exercise's data by their session_exercisename """
         return Session_exerciseService.get_session_exercise_data(session_exercisename)

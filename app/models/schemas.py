@@ -47,3 +47,11 @@ class MachineSchema(ma.Schema):
     class Meta:
         # Fields to expose, add more if needed.
         fields = ("name", "role_id")
+
+
+from .muscle_group import MuscleGroup
+
+class Muscle_groupSchema(ma.Schema):
+    class Meta:
+        # Fields to expose, add more if needed.
+        fields = ("name", "role_id")

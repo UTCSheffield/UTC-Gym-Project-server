@@ -8,7 +8,7 @@ class Session_exerciseService:
     @staticmethod
     def get_session_exercise_data(session_exercisename):
         """ Get session_exercise data by session_exercisename """
-        if not (session_exercise := Session_exercise.query.filter_by(session_exercisename=session_exercisename).first()):
+        if not (session_exercise := SessionExercise.query.filter_by(name=session_exercisename).first()):
             return err_resp("Session_exercise not found!", "session_exercise_404", 404)
 
         from .utils import load_data

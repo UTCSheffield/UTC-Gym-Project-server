@@ -8,7 +8,7 @@ class SessionService:
     @staticmethod
     def get_session_data(sessionname):
         """ Get session data by sessionname """
-        if not (session := Session.query.filter_by(sessionname=sessionname).first()):
+        if not (session := Session.query.filter_by(name=sessionname).first()):
             return err_resp("Session not found!", "session_404", 404)
 
         from .utils import load_data

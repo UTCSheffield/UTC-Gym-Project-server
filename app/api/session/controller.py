@@ -17,7 +17,7 @@ class SessionGet(Resource):
             404: "Session not found!",
         },
     )
-    @jwt_required()
+    #@jwt_required()
     def get(self, sessionname):
         """ Get a specific session's data by their sessionname """
         return SessionService.get_session_data(sessionname)

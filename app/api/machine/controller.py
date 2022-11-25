@@ -17,7 +17,7 @@ class MachineGet(Resource):
             404: "Machine not found!",
         },
     )
-    @jwt_required()
+    #@jwt_required()
     def get(self, machinename):
         """ Get a specific machine's data by their machinename """
         return MachineService.get_machine_data(machinename)

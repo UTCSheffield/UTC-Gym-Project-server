@@ -8,7 +8,7 @@ class MeasurementService:
     @staticmethod
     def get_measurement_data(measurementname):
         """ Get measurement data by measurementname """
-        if not (measurement := Measurement.query.filter_by(measurementname=measurementname).first()):
+        if not (measurement := Measurement.query.filter_by(name=measurementname).first()):
             return err_resp("Measurement not found!", "measurement_404", 404)
 
         from .utils import load_data

@@ -17,7 +17,7 @@ class MeasurementGet(Resource):
             404: "Measurement not found!",
         },
     )
-    @jwt_required()
+    #@jwt_required()
     def get(self, measurementname):
         """ Get a specific measurement's data by their measurementname """
         return MeasurementService.get_measurement_data(measurementname)

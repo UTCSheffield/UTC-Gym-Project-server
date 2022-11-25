@@ -17,7 +17,7 @@ class ExerciseGet(Resource):
             404: "Exercise not found!",
         },
     )
-    @jwt_required()
+    #@jwt_required()
     def get(self, exercisename):
         """ Get a specific exercise's data by their exercisename """
         return ExerciseService.get_exercise_data(exercisename)

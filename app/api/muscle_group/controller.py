@@ -17,7 +17,7 @@ class Muscle_groupGet(Resource):
             404: "Muscle_group not found!",
         },
     )
-    @jwt_required()
+    #@jwt_required()
     def get(self, muscle_groupname):
         """ Get a specific muscle_group's data by their muscle_groupname """
         return Muscle_groupService.get_muscle_group_data(muscle_groupname)

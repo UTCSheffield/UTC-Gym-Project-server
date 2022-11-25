@@ -8,7 +8,7 @@ class MachineService:
     @staticmethod
     def get_machine_data(machinename):
         """ Get machine data by machinename """
-        if not (machine := Machine.query.filter_by(machinename=machinename).first()):
+        if not (machine := Machine.query.filter_by(name=machinename).first()):
             return err_resp("Machine not found!", "machine_404", 404)
 
         from .utils import load_data
