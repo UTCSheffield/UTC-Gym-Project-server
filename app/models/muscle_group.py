@@ -7,7 +7,7 @@ class MuscleGroup(db.Model):
     #exercise_id = db.Column(db.Integer, db.ForeignKey("exercise.id"))
     #exercise = db.relationship("Exercise")
     
-    name = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False, unique=True)
 
     def __repr__(self):
         return self.name
