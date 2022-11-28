@@ -52,7 +52,9 @@ def startvalues():
         db.session.add(ses)
     mes = db.session.get(Measurement, 1)
     if mes == None:
-        mes = Measurement(date=db.func.now(), height=174, resting_heartrate=60)
+        mes = Measurement(date=db.func.now(), height=174, resting_heartrate=60, weight=70, age=20, sex=0)
+        mes.calc_bmi()
+        mes.calc_body_fat()
         db.session.add(mes)
     us = db.session.get(User, 1)
     if us == None:
