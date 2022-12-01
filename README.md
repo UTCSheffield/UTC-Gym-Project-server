@@ -31,7 +31,7 @@ Usage: flask [OPTIONS] COMMAND [ARGS]...
   will enable debug mode.
 
     $ export FLASK_APP=giya.py
-    $ export FLASK_ENV=development
+    $ export FLASK_DEBUG=true
     $ flask run
 
 Options:

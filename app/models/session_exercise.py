@@ -16,9 +16,13 @@ class SessionExercise(db.Model):
     perc_diff = db.Column(db.Integer, nullable=False, default=3)
     notes = db.Column(db.String)
     units = db.Column(db.String, nullable=False)
+    calories = db.Column(db.Integer)
 
     def suggestion(self):
         if self.exercise:
             self.reps = self.exercise.default_reps
             self.sets = self.exercise.default_sets
             self.value = self.exercise.default_value
+
+    def calc_calories(self):
+        self.calories = 0 # calculate calories here
