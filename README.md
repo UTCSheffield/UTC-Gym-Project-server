@@ -73,7 +73,7 @@ The rest of the resources are found in `/api` (This is the docs route by default
 **Note**: Pipenv seems to have been becoming unmaintained or unsupported, so `virtualenv` is recommended to manage your packages and Python environment, hence why `requirements.txt` has been generated.
 
 # Install on Windows
-Clone this repo with GitHub Desktop
+Clone this repo with GitHub Desktopadmin/sessionexercise/
 
 ```powershell
 py -m pip install -r .\requirements.txt

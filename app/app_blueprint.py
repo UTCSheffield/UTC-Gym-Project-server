@@ -25,6 +25,8 @@ def index():
 
 @app_blueprint.route('/startvalues')
 def startvalues():
+    reset_database()
+
     bi = db.session.get(MuscleGroup, 1)
     if bi == None:
         bi = MuscleGroup(name="Biceps")
@@ -67,7 +69,6 @@ def startvalues():
     return render_template("app/index.html")
 
 
-@app_blueprint.route('/reset')
 def reset_database():
     db.session.query(Exercise).delete()
     db.session.query(Machine).delete()
@@ -77,7 +78,6 @@ def reset_database():
     db.session.query(Session).delete()
     db.session.query(User).delete()
     db.session.commit()
-    return render_template("app/index.html")
 
 
     
