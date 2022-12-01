@@ -8,10 +8,15 @@ class Session(db.Model):
     #user = db.relationship("User")
 
     exercises = db.relationship("SessionExercise")
-    
+    calories = db.Column(db.Integer)
     location = db.Column(db.String, nullable=False)
     startDateTime = db.Column(db.DateTime, nullable=False)
     endTime = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
         return str(self.id) + "-" + str(self.startDateTime)
+
+    def get_total_calories(self):
+        self.calories = 0
+        for exercise in self.exercises:
+            self.calories += exercise.calories

@@ -43,12 +43,13 @@ def startvalues():
         db.session.add(bp_exercise)
     bp_session_exercise = db.session.get(SessionExercise, 1)
     if bp_session_exercise == None:
-        bp_session_exercise = SessionExercise(exercise=bp_exercise, end=db.func.now(), reps=10, sets=3, perc_diff=3, units="kg")
+        bp_session_exercise = SessionExercise(exercise=bp_exercise, end=db.func.now(), reps=10, sets=3, perc_diff=3, units="kg", calories=10)
         db.session.add(bp_session_exercise)
     ses = db.session.get(Session, 1)
     if ses == None:
         ses = Session(location="UTC OLP", startDateTime=db.func.now(), endTime=db.func.now())
         ses.exercises.append(bp_session_exercise)
+        ses.get_total_calories()
         db.session.add(ses)
     mes = db.session.get(Measurement, 1)
     if mes == None:
