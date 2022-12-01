@@ -81,6 +81,7 @@ class User(Model):
     username = Column(db.String(15), unique=True, index=True)
     name = Column(db.String(64))
     password_hash = Column(db.String(128))
+    weight_goal = Column(db.Integer)
 
     joined_date = Column(db.DateTime, default=datetime.utcnow)
     role_id = Column(db.Integer, db.ForeignKey("roles.id"))
