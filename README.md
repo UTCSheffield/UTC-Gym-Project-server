@@ -33,7 +33,7 @@ Usage: flask [OPTIONS] COMMAND [ARGS]...
     $ export FLASK_APP=giya.py
     $ export FLASK_DEBUG=true
     $ flask run
-
+config_name
 Options:
   --version  Show the flask version
   --help     Show this message and exit.

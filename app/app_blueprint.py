@@ -61,7 +61,7 @@ def startvalues():
         db.session.add(mes)
     us = db.session.get(User, 1)
     if us == None:
-        us = User(email="bob@gmail.com", username="bob3", name="Bob Ross", password_hash="$2b$12$y9hO97HAn/9dbgYC.JCA9u2AMNh44YPGMAxjIDEXvrtB5LnkwOLq2")
+        us = User(email="bob@gmail.com", username="bob3", name="Bob Ross", password_hash="$2b$12$y9hO97HAn/9dbgYC.JCA9u2AMNh44YPGMAxjIDEXvrtB5LnkwOLq2", weight_goal=60)
         us.measurements.append(mes)
         db.session.add(us)
     db.session.commit()
