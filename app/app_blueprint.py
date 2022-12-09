@@ -26,6 +26,11 @@ def index():
 @app_blueprint.route('/startvalues')
 def startvalues():
     reset_database()
+    us = db.session.get(User, 1)
+    if us == None:
+        us = User(email="bob@gmail.com", username="bob3", name="Bob Ross", password_hash="$2b$12$y9hO97HAn/9dbgYC.JCA9u2AMNh44YPGMAxjIDEXvrtB5LnkwOLq2", weight_goal=60)
+        db.session.add(us)
+    db.session.commit()
 
     bi = db.session.get(MuscleGroup, 1)
     if bi == None:
@@ -43,27 +48,35 @@ def startvalues():
     if bp_exercise == None:
         bp_exercise = Exercise(machine=bp, muscle_groups=[bi, tri], name="Bench Press", units="kg", how_to_use="with difficulty", default_reps=10, default_sets=3, default_value=10, default_perc_def=3)
         db.session.add(bp_exercise)
+    
+    
     bp_session_exercise = db.session.get(SessionExercise, 1)
     if bp_session_exercise == None:
         bp_session_exercise = SessionExercise(exercise=bp_exercise, end=db.func.now(), reps=10, sets=3, perc_diff=3, units="kg", calories=10)
         db.session.add(bp_session_exercise)
+
+
+
     ses = db.session.get(Session, 1)
     if ses == None:
-        ses = Session(location="UTC OLP", startDateTime=db.func.now(), endTime=db.func.now())
+        ses = Session(user=us, location="UTC OLP", startDateTime=db.func.now(), endTime=db.func.now())
         ses.exercises.append(bp_session_exercise)
-        ses.get_total_calories()
+
         db.session.add(ses)
+        db.session.commit()
+        ses.exercises[0].calc_calories()
+        ses.get_total_calories()
+
+    # TODO : Add weight as a calculated property to user that looks up the latest weight figure.
+
     mes = db.session.get(Measurement, 1)
     if mes == None:
         mes = Measurement(date=db.func.now(), height=174, resting_heartrate=60, weight=70, age=20, sex="male")
         mes.calc_bmi()
         mes.calc_body_fat()
         db.session.add(mes)
-    us = db.session.get(User, 1)
-    if us == None:
-        us = User(email="bob@gmail.com", username="bob3", name="Bob Ross", password_hash="$2b$12$y9hO97HAn/9dbgYC.JCA9u2AMNh44YPGMAxjIDEXvrtB5LnkwOLq2", weight_goal=60)
-        us.measurements.append(mes)
-        db.session.add(us)
+    us.measurements.append(mes)
+        
     db.session.commit()
 
     return render_template("app/index.html")

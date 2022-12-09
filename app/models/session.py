@@ -5,7 +5,7 @@ class Session(db.Model):
     id = db.Column(db.Integer,nullable=False, primary_key=True)
     
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-    #user = db.relationship("User")
+    user = db.relationship("User", back_populates="sessions")
 
     exercises = db.relationship("SessionExercise")
     total_calories = db.Column(db.Integer)
