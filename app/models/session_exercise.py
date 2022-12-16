@@ -7,7 +7,7 @@ class SessionExercise(db.Model):
     session_id = db.Column(db.ForeignKey("session.id"))
     session = db.relationship("Session", back_populates="exercises")
     exercise_id = db.Column(db.ForeignKey("exercise.id"))
-    exercise = db.relationship("Exercise")#, back_populates="sessions")
+    exercise = db.relationship("Exercise")
 
     start = db.Column(db.DateTime, nullable=False, default=db.func.now())
     end = db.Column(db.DateTime, nullable=False)
@@ -31,5 +31,4 @@ class SessionExercise(db.Model):
         MET = (self.exercise.vigorous_met/8) * self.perc_diff
         duration = (self.end-self.start) / timedelta(minutes=1)
         weight = int(self.session.user.measurements[-1].weight)
-        self.calories = (duration)*(MET*3.5*weight)/200 # calculate calories here
-
+        self.calories = (duration)*(MET*3.5*weight)/200
