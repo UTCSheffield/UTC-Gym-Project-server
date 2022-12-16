@@ -1,4 +1,5 @@
 from app import db, bcrypt
+from datetime import timedelta
 
 class SessionExercise(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -16,20 +17,19 @@ class SessionExercise(db.Model):
     notes = db.Column(db.String)
     units = db.Column(db.String, nullable=False)
     calories = db.Column(db.Integer)
-    '''
-    kcalories = db.column_property(
-        exists().where(CreditCard.user_id == id)
-    )
-    '''
+    suggestion_type = db.Column(db.String, nullable=False)
 
     def suggestion(self):
+        if self.suggestion_type == "weights":
+            print("Is a weight")
         if self.exercise:
             self.reps = self.exercise.default_reps
             self.sets = self.exercise.default_sets
             self.value = self.exercise.default_value
 
     def calc_calories(self):
-        print(self)
-        print("Session:", self.session.user.weight) 
-        #self.calories = (self.end - self.start)*(self.perc_diff*3.5*self.weight)/200 # calculate calories here
+        MET = (self.exercise.vigorous_met/8) * self.perc_diff
+        duration = (self.end-self.start) / timedelta(minutes=1)
+        weight = int(self.session.user.measurements[-1].weight)
+        self.calories = (duration)*(MET*3.5*weight)/200 # calculate calories here
 

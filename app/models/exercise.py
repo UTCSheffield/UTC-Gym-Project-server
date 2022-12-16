@@ -22,6 +22,7 @@ class Exercise(db.Model):
     default_sets = db.Column(db.Integer, default=3)
     default_value = db.Column(db.Float)
     default_perc_def = db.Column(db.Integer, default=3)
+    vigorous_met = db.Column(db.Float, nullable=False, default=5.5)
 
     def __repr__(self):
         return self.name
