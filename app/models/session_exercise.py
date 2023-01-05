@@ -17,10 +17,9 @@ class SessionExercise(db.Model):
     notes = db.Column(db.String)
     units = db.Column(db.String, nullable=False)
     calories = db.Column(db.Integer)
-    suggestion_type = db.Column(db.String, nullable=False)
 
     def suggestion(self):
-        if self.suggestion_type == "weights":
+        if self.exercise.suggestion_type == "weights":
             print("Is a weight")
         if self.exercise:
             self.reps = self.exercise.default_reps
