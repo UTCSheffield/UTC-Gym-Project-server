@@ -54,13 +54,13 @@ def startvalues():
         db.session.add(bp)
     bp_exercise = db.session.get(Exercise, 1)
     if bp_exercise == None:
-        bp_exercise = Exercise(machine=bp, muscle_groups=[bi, tri], name="Bench Press", units="kg", how_to_use="with difficulty", default_reps=10, default_sets=3, default_value=10, default_perc_def=3, vigorous_met=6.0)
+        bp_exercise = Exercise(machine=bp, muscle_groups=[bi, tri], exercise_type="weights", suggestion_type="weights", name="Bench Press", units="kg", how_to_use="with difficulty", default_reps=10, default_sets=3, default_value=10, default_perc_def=3, vigorous_met=6.0)
         db.session.add(bp_exercise)
     
     
     bp_session_exercise = db.session.get(SessionExercise, 1)
     if bp_session_exercise == None:
-        bp_session_exercise = SessionExercise(exercise=bp_exercise, start=datetime.strptime("19/09/2022 13:55:26", '%d/%m/%Y %H:%M:%S'), end=datetime.strptime("19/09/2022 14:55:26", '%d/%m/%Y %H:%M:%S'), reps=10, sets=3, perc_diff=4, units="kg", calories=10, suggestion_type="weights")
+        bp_session_exercise = SessionExercise(exercise=bp_exercise, start=datetime.strptime("19/09/2022 13:55:26", '%d/%m/%Y %H:%M:%S'), end=datetime.strptime("19/09/2022 14:55:26", '%d/%m/%Y %H:%M:%S'), reps=10, sets=3, perc_diff=4, units="kg", calories=10)
         db.session.add(bp_session_exercise)
 
 
