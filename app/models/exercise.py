@@ -28,3 +28,4 @@ class Exercise(db.Model):
 
     def __repr__(self):
         return self.name
+        
