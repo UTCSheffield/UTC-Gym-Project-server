@@ -18,6 +18,7 @@ class Exercise(db.Model):
     units = db.Column(db.String, nullable=False, default="kg")
     muscle_groups = db.relationship("MuscleGroup", secondary=exercisemusclegroup_table)
     how_to_use = db.Column(db.String)
+    exercise_type = db.Column(db.String)
     default_reps = db.Column(db.Integer, default=10)
     default_sets = db.Column(db.Integer, default=3)
     default_value = db.Column(db.Float)

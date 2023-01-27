@@ -6,7 +6,7 @@ from .user import User
 class UserSchema(ma.Schema):
     class Meta:
         # Fields to expose, add more if needed.
-        fields = ("email", "name", "username", "joined_date", "role_id")
+        fields = ("email", "name", "username", "joined_date")
 
 
 from .session import Session
@@ -14,7 +14,7 @@ from .session import Session
 class SessionSchema(ma.Schema):
     class Meta:
         # Fields to expose, add more if needed.
-        fields = ("User", "location", "startDateTime", "endTime", "role_id")
+        fields = ("User", "location", "startDateTime", "endTime")
 
 
 from .exercise import Exercise
@@ -22,7 +22,7 @@ from .exercise import Exercise
 class ExerciseSchema(ma.Schema):
     class Meta:
         # Fields to expose, add more if needed.
-        fields = ("name", "machine", "measure", "how_to_use", "role_id")
+        fields = ("name", "machinename", "measure", "how_to_use", "default_reps", "default_sets", "exercise_type")
 
 
 from .session_exercise import SessionExercise
@@ -30,7 +30,7 @@ from .session_exercise import SessionExercise
 class SessionExerciseSchema(ma.Schema):
     class Meta:
         # Fields to expose, add more if needed.
-        fields = ("start", "end", "reps", "value", "role_id")
+        fields = ("start", "end", "reps", "value")
 
 
 from .measurement import Measurement
@@ -38,7 +38,7 @@ from .measurement import Measurement
 class MeasurementSchema(ma.Schema):
     class Meta:
         # Fields to expose, add more if needed.
-        fields = ("date", "height", "resting", "role_id")
+        fields = ("date", "height", "resting")
 
 
 from .machine import Machine
@@ -46,7 +46,7 @@ from .machine import Machine
 class MachineSchema(ma.Schema):
     class Meta:
         # Fields to expose, add more if needed.
-        fields = ("name", "role_id")
+        fields = ["name"]
 
 
 from .muscle_group import MuscleGroup
@@ -54,4 +54,4 @@ from .muscle_group import MuscleGroup
 class Muscle_groupSchema(ma.Schema):
     class Meta:
         # Fields to expose, add more if needed.
-        fields = ("name", "role_id")
+        fields = ["name"]
