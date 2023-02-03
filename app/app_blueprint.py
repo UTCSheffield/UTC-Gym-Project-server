@@ -60,7 +60,7 @@ def startvalues():
     
     bp_session_exercise = db.session.get(SessionExercise, 1)
     if bp_session_exercise == None:
-        bp_session_exercise = SessionExercise(exercise=bp_exercise, start=datetime.strptime("19/09/2022 13:55:26", '%d/%m/%Y %H:%M:%S'), end=datetime.strptime("19/09/2022 14:55:26", '%d/%m/%Y %H:%M:%S'), reps=10, sets=3, perc_diff=4, units="kg", calories=10)
+        bp_session_exercise = SessionExercise(exercise=bp_exercise, start=datetime.strptime("19/09/2022 13:55:26", '%d/%m/%Y %H:%M:%S'), end=datetime.strptime("19/09/2022 14:55:26", '%d/%m/%Y %H:%M:%S'), reps=10, sets=3, perc_diff=4, units="kg", calories=10, value=1)
         db.session.add(bp_session_exercise)
 
 
