@@ -48,6 +48,9 @@ def startvalues():
     if tri == None:
         tri = MuscleGroup(name="Triceps") 
         db.session.add(tri)
+    if quad == None:
+        quad = MuscleGroup(name="Quad") 
+        db.session.add(quad)
     bp = db.session.get(Machine, 1)
     if bp == None:
         bp = Machine(name="Bench Press")
@@ -56,6 +59,10 @@ def startvalues():
     if bp_exercise == None:
         bp_exercise = Exercise(machine=bp, muscle_groups=[bi, tri], exercise_type="weights", suggestion_type="weights", name="Bench Press", units="kg", how_to_use="with difficulty", default_reps=10, default_sets=3, default_value=10, default_perc_def=3, vigorous_met=6.0)
         db.session.add(bp_exercise)
+    sb_exercise = db.session.get(Exercise, 2)
+    if sb_exercise == None:
+        sb_exercise = Exercise(machine=bp, muscle_groups=[quad], exercise_type="cardio", suggestion_type="cardio", name="Stationary Bike", units="m", how_to_use="with difficulty 2", default_reps=10, default_sets=3, default_value=10, default_perc_def=3, vigorous_met=6.0)
+        db.session.add(sb_exercise)
     
     
     bp_session_exercise = db.session.get(SessionExercise, 1)
