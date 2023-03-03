@@ -25,6 +25,7 @@ class Exercise(db.Model):
     default_perc_def = db.Column(db.Integer, default=3)
     vigorous_met = db.Column(db.Float, nullable=False, default=5.5)
     suggestion_type = db.Column(db.String, nullable=False)
+    value_label = db.Column(db.String)
 
     def __repr__(self):
         return self.name
